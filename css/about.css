@@ -1,0 +1,51 @@
+.about-hero {
+  position: relative;
+  display: flex;
+  gap: clamp(32px, 4vw, 72px);
+  flex-wrap: wrap;
+  padding: clamp(40px, 4.4vw, 64px) var(--gutter) clamp(56px, 5.6vw, 80px);
+  align-items: flex-start;
+}
+.about-hero__label { position: relative; box-sizing: border-box; width: var(--rail-col); padding-top: 14px; }
+.about-hero__body { position: relative; flex: 1 1 460px; max-width: 700px; display: flex; flex-direction: column; gap: 24px; }
+.about-hero__title { font-size: clamp(38px, 4.6vw, 64px); line-height: 1.04; letter-spacing: -0.032em; }
+.about-hero__cv {
+  display: inline-flex;
+  gap: 10px;
+  align-items: center;
+  align-self: flex-start;
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.4;
+  color: var(--ink-muted);
+  transition: color 160ms ease;
+}
+.about-hero__cv:hover { color: var(--accent); }
+.about-hero__portrait { position: relative; flex: 0 1 340px; min-width: 240px; }
+.about-hero__portrait-frame { position: relative; width: 100%; aspect-ratio: 4 / 5; overflow: hidden; border-radius: var(--radius); background: var(--surface-image); }
+.about-hero__portrait-frame img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+
+.about-slideshow {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  border-radius: var(--radius);
+  background: var(--surface-image);
+}
+.about-slideshow img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 900ms ease;
+}
+.about-slideshow img.is-active { opacity: 1; }
+
+.about-quotes { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: clamp(28px, 3.4vw, 48px); }
+.about-quote { padding-left: 18px; border-left: 2px solid var(--border-quote); display: flex; flex-direction: column; gap: 12px; }
+.about-quote__text { font-size: var(--text-body); font-style: italic; font-weight: 400; line-height: 1.4; color: var(--ink-body-strong); text-wrap: pretty; }
+.about-quote__attr { font-size: 14px; line-height: 1.4; color: var(--ink-soft); }

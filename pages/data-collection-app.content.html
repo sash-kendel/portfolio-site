@@ -1,0 +1,129 @@
+<header class="page-hero">
+  <div class="bloom" aria-hidden="true"><div class="bloom__inner"></div></div>
+
+  <a href="index.html" class="back-link" data-hero-anim="1"><span class="back-link__arrow" aria-hidden="true">&larr;</span> Back to home</a>
+
+  <h1 class="h1" data-hero-anim="2">Data Collection App</h1>
+
+  <p class="subtitle" data-hero-anim="3">Before this existed, nobody on the team could say what still needed capturing to build the visual model, or when there was already enough.</p>
+
+  <figure class="page-hero__figure" data-hero-anim="4">
+    <img src="images/uploads/data collection hero-3aa4ae7f.png" alt="The Data Collection App: project folders with quota counts, capture instructions, capturing a device, and the model's prediction awaiting confirmation.">
+  </figure>
+</header>
+
+<section class="facts-strip band">
+  <div class="fact" data-reveal>
+    <span class="fact__label">Role</span>
+    <p class="fact__value">Led the design, working with a junior designer</p>
+  </div>
+  <div class="fact" data-reveal>
+    <span class="fact__label">Team</span>
+    <p class="fact__value">A junior designer, a product manager, and dev teams</p>
+  </div>
+  <div class="fact" data-reveal>
+    <span class="fact__label">Scope</span>
+    <p class="fact__value">The capture flow, project and folder organization against quotas, and model verification</p>
+  </div>
+  <div class="fact" data-reveal>
+    <span class="fact__label">Outcome</span>
+    <p class="fact__value">An internal tool for TechSee&rsquo;s own data collection team. Handed off to engineering, every screen</p>
+  </div>
+  <div class="fact" data-reveal>
+    <span class="fact__label">When</span>
+    <p class="fact__value">TechSee, around 2022</p>
+  </div>
+</section>
+
+<section class="section section--first">
+  <div class="rail">
+    <span class="eyebrow rail__label" data-reveal>01 &mdash; The problem</span>
+    <div class="rail__content" data-reveal>
+      <h2 class="h2">The work had no structure</h2>
+      <p class="body-text">Training a computer vision model means photographing the same object from enough angles, in enough conditions, enough times. Before this app, that work had no structure: no one could say which device still needed more images, which angle was already covered, or when a category had enough to actually train on.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="rail">
+    <span class="eyebrow rail__label" data-reveal>02 &mdash; Quotas</span>
+    <div class="rail__content" data-reveal>
+      <h2 class="h2">Finding what still needs capturing</h2>
+      <p class="body-text">Projects map to what a model needs to learn: a router, a vacuum head, a specific device. Inside each one, folders break it down further, by part and angle, and every folder carries a live count against its target, 14 out of 340, 348 out of 340 once a category is done. Training and evaluation sets are split from the start, not sorted after the fact.</p>
+      <p class="quote">Nobody has to remember what&rsquo;s missing. The folder says so.</p>
+    </div>
+  </div>
+
+  <figure class="figure" data-reveal style="margin-top: clamp(28px, 3vw, 40px);">
+    <img src="images/uploads/data collection quotas-b2a65a11.png" alt="Project list through folder views: counts against quota per folder, the empty state, a single video, a filled folder, and the thumbnail states.">
+  </figure>
+</section>
+
+<section class="section">
+  <div class="rail">
+    <span class="eyebrow rail__label" data-reveal>03 &mdash; Capture</span>
+    <div class="rail__content" data-reveal>
+      <h2 class="h2">Capturing with guidance</h2>
+      <p class="body-text">The capture screen gives real-time feedback as someone shoots: too dark, too close, too far, move slower. It&rsquo;s built so anyone can capture usable training images without already knowing what &ldquo;good&rdquo; looks like.</p>
+    </div>
+  </div>
+
+  <figure class="figure figure--end" data-reveal style="margin-top: clamp(28px, 3vw, 40px);">
+    <img src="images/uploads/data collection guidance.png" alt="Live capture guidance across four screens: move closer, too dark, move slower, and correctly framed.">
+  </figure>
+</section>
+
+<section class="section">
+  <div class="rail">
+    <span class="eyebrow rail__label" data-reveal>04 &mdash; Verification</span>
+    <div class="rail__content" data-reveal>
+      <h2 class="h2">Checking the model&rsquo;s work</h2>
+      <p class="body-text">The same app closes the loop. Pick a trained model version, point the camera at the object, and see whether it actually recognizes it. Verification happens in the field, with the same tool used to collect the data in the first place, not in a separate review step disconnected from where the images came from.</p>
+    </div>
+  </div>
+
+  <figure class="figure" data-reveal style="margin-top: clamp(28px, 3vw, 40px);">
+    <img src="images/uploads/data collection verification flow-80786c64.png" alt="Model verification flow: the intro screen, choosing a model and capturing the device, processing, then the prediction with a yes or no confirmation.">
+  </figure>
+</section>
+
+<section class="section">
+  <div class="rail">
+    <span class="eyebrow rail__label" data-reveal>05 &mdash; Pipeline</span>
+    <div class="rail__content" data-reveal>
+      <h2 class="h2">Part of a bigger pipeline</h2>
+      <p class="body-text">This wasn&rsquo;t the only source of training data at TechSee. Auto-Classifier pulls its images from live customer sessions, sampling frames as they happen. This app is the deliberate version of the same goal: someone captures exactly what a model needs, on purpose, instead of waiting for the right frame to turn up in a call. Two paths into the same training set, and this one is the more direct route to what a model actually needs.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section section--last">
+  <div class="rail">
+    <span class="eyebrow rail__label" data-reveal>06 &mdash; Outcome</span>
+    <div class="rail__content" data-reveal>
+      <h2 class="h2">What happened</h2>
+      <p class="body-text">It started as an internal tool, built to solve TechSee&rsquo;s own data collection problem, and it stayed internal. The team using it responded well, positive feedback on the UI itself. The handoff to engineering covered every screen and every state it could be in, empty, full of images, loading, edge cases, on both iOS and Android, ready to build without guessing.</p>
+    </div>
+  </div>
+
+  <figure class="figure" data-reveal style="margin-top: clamp(28px, 3vw, 40px);">
+    <img src="images/uploads/Screenshot 2026-08-18 at 15.36.39.png" alt="The full design file: login, project list, folder and capture flows for iOS and Android, capture guidance, folder description, and model verification.">
+  </figure>
+</section>
+
+<section class="more-cases band">
+  <span class="eyebrow">More case studies</span>
+  <div class="more-cases__grid">
+    <a class="case-card" href="auto-classifier.html">
+      <span class="case-card__number">02</span>
+      <span class="case-card__title">Auto-Classifier <span class="case-card__arrow" aria-hidden="true">&rarr;</span></span>
+      <p class="case-card__desc">Training a computer vision model without a data scientist.</p>
+    </a>
+    <a class="case-card" href="sophie-ai.html">
+      <span class="case-card__number">01</span>
+      <span class="case-card__title">Sophie AI <span class="case-card__arrow" aria-hidden="true">&rarr;</span></span>
+      <p class="case-card__desc">An autonomous agent that sees.</p>
+    </a>
+  </div>
+</section>

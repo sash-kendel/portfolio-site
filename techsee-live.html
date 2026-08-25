@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TechSee Live — Sasha Kendel</title>
+<meta name="description" content="TechSee Live already existed, built before Zoom and Google Meet set the patterns everyone now expects from a video call. I led the redesign that caught it up.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="css/main.css">
+<noscript><style>[data-reveal], [data-hero-anim] { opacity: 1 !important; transform: none !important; }</style></noscript>
+</head>
+<body>
+<div class="load-bar" data-load-bar aria-hidden="true"></div>
+<header class="site-header">
+<nav class="site-nav" data-nav>
+  <a href="index.html" class="wordmark">Sasha Kendel</a>
+
+  <div class="nav-right">
+    <div class="nav-menu" data-menu="cases">
+      <button class="nav-menu__trigger" data-trigger type="button">
+        Case studies
+        <svg class="nav-menu__chev" aria-hidden="true" width="11" height="11" viewBox="0 0 16 16" fill="none"><path d="M4 6.25 8 10.25 12 6.25" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+      </button>
+      <div class="nav-dropdown">
+        <div class="nav-dropdown__panel">
+          <a href="sophie-ai.html" class="nav-dropdown__item"><span class="nav-dropdown__item-num">01</span>Sophie AI</a>
+          <a href="auto-classifier.html" class="nav-dropdown__item"><span class="nav-dropdown__item-num">02</span>Auto-Classifier</a>
+          <a href="connectivity-guru.html" class="nav-dropdown__item"><span class="nav-dropdown__item-num">03</span>Connectivity Guru</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="nav-menu" data-menu="other">
+      <button class="nav-menu__trigger" data-trigger type="button">
+        Other projects
+        <svg class="nav-menu__chev" aria-hidden="true" width="11" height="11" viewBox="0 0 16 16" fill="none"><path d="M4 6.25 8 10.25 12 6.25" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+      </button>
+      <div class="nav-dropdown nav-dropdown--narrow">
+        <div class="nav-dropdown__panel">
+          <a href="techsee-live.html" class="nav-dropdown__item">TechSee Live</a>
+          <a href="data-collection-app.html" class="nav-dropdown__item">Data Collection App</a>
+        </div>
+      </div>
+    </div>
+
+    <a href="about.html" class="nav-link">About</a>
+  </div>
+</nav>
+</header>
+
+<div class="page">
+<header class="page-hero">
+  <div class="bloom" aria-hidden="true"><div class="bloom__inner"></div></div>
+
+  <a href="index.html" class="back-link" data-hero-anim="1"><span class="back-link__arrow" aria-hidden="true">&larr;</span> Back to home</a>
+
+  <h1 class="h1" data-hero-anim="2">TechSee Live</h1>
+
+  <p class="subtitle" data-hero-anim="3">TechSee Live already existed, built before Zoom and Google Meet set the patterns everyone now expects from a video call. I led the redesign that caught it up.</p>
+
+  <figure class="page-hero__figure" data-hero-anim="4">
+    <img src="images/uploads/techsee live hero.png" alt="The redesigned TechSee Live workspace: mobile live session alongside the agent's browser view with capture tools and session history side panel.">
+  </figure>
+</header>
+
+<section class="facts-strip band">
+  <div class="fact" data-reveal>
+    <span class="fact__label">Role</span>
+    <p class="fact__value">Led the UX for the redesign, working closely with a junior product designer and a product manager</p>
+  </div>
+  <div class="fact" data-reveal>
+    <span class="fact__label">Team</span>
+    <p class="fact__value">A junior designer, a product manager, and a dev team</p>
+  </div>
+  <div class="fact" data-reveal>
+    <span class="fact__label">Scope</span>
+    <p class="fact__value">Session connection, the live video session, the capture and annotation tools around it, and the history view</p>
+  </div>
+  <div class="fact" data-reveal>
+    <span class="fact__label">Outcome</span>
+    <p class="fact__value">Shipped as Live 3.0, but only to new, smaller customers, not a full rollout across the existing base. Became the foundation later products built on: Sophie AI, VRA in Salesforce, Connectivity Guru&rsquo;s agent view</p>
+  </div>
+  <div class="fact" data-reveal>
+    <span class="fact__label">When</span>
+    <p class="fact__value">TechSee, around 2022</p>
+  </div>
+</section>
+
+<section class="section section--first">
+  <div class="rail">
+    <span class="eyebrow rail__label" data-reveal>01 &mdash; The problem</span>
+    <div class="rail__content" data-reveal>
+      <h2 class="h2">The interface predated the products that set the expectations</h2>
+      <p class="body-text">The interface predated Zoom and Meet, the products that quietly set what everyone now expects from a video call. Its responsiveness behaved badly across different screen sizes, and it put complex information on screen all at once instead of when it was actually needed.</p>
+      <p class="body-text">The goal wasn&rsquo;t novelty. It was to align the interface with the conversational tools agents already used every day, and to clean it up: show less on screen at once, and surface only the information relevant to whatever the agent was actually doing. It also needed to work across whatever CRM a client had it embedded in, with minimal reconfiguration. We built it on MUI, the same design system running across TechSee&rsquo;s other products, rather than a bespoke component library.</p>
+    </div>
+  </div>
+
+  <figure class="figure" data-reveal style="margin-top: clamp(28px, 3vw, 40px);">
+    <img src="images/uploads/techsee live old.png" alt="The interface before the redesign, annotated: header, left bar, video canvas, floating toolbar, right bar, chat.">
+    <figcaption class="caption">The old interface, before the redesign.</figcaption>
+  </figure>
+</section>
+
+<section class="section">
+  <div class="rail">
+    <span class="eyebrow rail__label" data-reveal>02 &mdash; Connection</span>
+    <div class="rail__content" data-reveal>
+      <h2 class="h2">Getting the customer online</h2>
+      <p class="body-text">Before any video starts, the customer has to say yes, several times: to an SMS link, to a terms of service screen, to camera and microphone access. We wanted the agent to see connection status directly, not discover a failed session after the fact.</p>
+      <p class="body-text">The redesign turned that wait into a checklist: SMS sent, link clicked, terms approved, camera and microphone granted. Next to it sits a live preview of the exact screen the customer is looking at right now, not a description of it. History from earlier interactions with that customer is visible before the session even starts, so the agent has context the moment the call connects instead of building it live.</p>
+    </div>
+  </div>
+
+  <figure class="figure" data-reveal style="margin-top: clamp(28px, 3vw, 40px);">
+    <img src="images/uploads/techsee live connection wizard.png" alt="Session connection: the numbered step checklist next to a preview of what the customer sees on their device.">
+  </figure>
+</section>
+
+<section class="section">
+  <div class="rail">
+    <span class="eyebrow rail__label" data-reveal>03 &mdash; Workspace</span>
+    <div class="rail__content" data-reveal>
+      <h2 class="h2">The workspace</h2>
+      <p class="body-text">An agent opens a live video feed from the customer&rsquo;s phone, captures what they need with a snapshot or a scan, and works from three tabs: Assets, Assistant, Chat. Every past session for that customer sits in the same view, grouped by date, so picking up a repeat call doesn&rsquo;t mean starting from a blank screen.</p>
+    </div>
+  </div>
+
+  <div class="figure-grid" style="margin-top: clamp(28px, 3vw, 40px);">
+    <figure class="figure" data-reveal>
+      <img src="images/uploads/techsee live assistant.png" alt="The Assistant tab open in the side panel: conversational troubleshooting steps with cited sources, next to the live video.">
+    </figure>
+    <figure class="figure" data-reveal>
+      <img src="images/uploads/techsee live history.png" alt="The Assets tab open in the side panel: session history grouped by date, next to the live video.">
+    </figure>
+  </div>
+</section>
+
+<section class="section">
+  <div class="rail">
+    <span class="eyebrow rail__label" data-reveal>04 &mdash; Panel states</span>
+    <div class="rail__content" data-reveal>
+      <h2 class="h2">The right panel isn&rsquo;t fixed</h2>
+      <p class="body-text">A panel like this rarely shows up in its ideal state. Most of the time it&rsquo;s holding real history, sometimes it&rsquo;s empty, sometimes an agent is elbow deep in a single image, and sometimes it needs to get out of the way entirely.</p>
+      <p class="quote">Populated, empty, mid-edit, collapsed: four states, each designed on purpose rather than left to default.</p>
+    </div>
+  </div>
+
+  <figure class="figure figure--end" data-reveal style="margin-top: clamp(28px, 3vw, 40px);">
+    <img src="images/uploads/right panel states.png" alt="The right panel across states: populated with session history, empty, mid-edit on a single asset, and collapsed.">
+  </figure>
+</section>
+
+<section class="section section--last">
+  <div class="rail">
+    <span class="eyebrow rail__label" data-reveal>05 &mdash; Testing</span>
+    <div class="rail__content" data-reveal>
+      <h2 class="h2">What testing changed</h2>
+      <p class="body-text">Two fixes came straight out of in-house usability testing. Session and customer info was cluttering the screen, so we tucked it behind a single overflow menu instead of leaving it all visible. And the annotation color buttons were too small to click reliably, so I increased their size after users complained they kept missing the target when choosing a color.</p>
+      <p class="body-text">Neither was a guess. Both trace back to specific complaints from people using the tool.</p>
+    </div>
+  </div>
+
+  <figure class="figure figure--end" data-reveal style="margin-top: clamp(28px, 3vw, 40px); aspect-ratio: 2162 / 1164; display: flex; justify-content: flex-start;">
+    <img src="images/uploads/techsee live testings.png" alt="The annotation color buttons before and after testing: the small stacked swatches replaced with larger, easier-to-hit targets." style="height: 100%; width: auto; max-width: 100%; object-fit: contain;">
+  </figure>
+</section>
+
+<section class="more-cases band">
+  <span class="eyebrow">More case studies</span>
+  <div class="more-cases__grid">
+    <a class="case-card" href="sophie-ai.html">
+      <span class="case-card__number">01</span>
+      <span class="case-card__title">Sophie AI <span class="case-card__arrow" aria-hidden="true">&rarr;</span></span>
+      <p class="case-card__desc">An autonomous agent that sees.</p>
+    </a>
+    <a class="case-card" href="connectivity-guru.html">
+      <span class="case-card__number">03</span>
+      <span class="case-card__title">Connectivity Guru <span class="case-card__arrow" aria-hidden="true">&rarr;</span></span>
+      <p class="case-card__desc">A customer maps their own WiFi dead zones.</p>
+    </a>
+  </div>
+</section>
+
+<footer class="footer">
+  <p class="footer__line">Open to senior and lead product design roles. Remote or hybrid. Reach out: <a href="mailto:alexandra.yelagina@gmail.com">alexandra.yelagina@gmail.com</a></p>
+  <div class="footer__links">
+    <a href="https://www.linkedin.com/in/alexandra-sasha-kendel-979560146/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+    <a href="https://www.dropbox.com/scl/fi/hna54vscz23ezn6i7mx7g/Alexandra-Kendel-CV.pdf?rlkey=akqqad5lpz6l43c6pzyfwv3ve&st=mqq41lt8&dl=0" target="_blank" rel="noopener noreferrer">CV</a>
+  </div>
+</footer>
+
+</div>
+<script src="js/main.js" defer></script>
+</body>
+</html>

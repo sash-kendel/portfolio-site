@@ -1,0 +1,233 @@
+<header class="page-hero">
+  <div class="bloom" aria-hidden="true"><div class="bloom__inner"></div></div>
+
+  <a href="index.html" class="back-link" data-hero-anim="1"><span class="back-link__arrow" aria-hidden="true">&larr;</span> Back to home</a>
+
+  <h1 class="h1" data-hero-anim="2">Connectivity Guru</h1>
+
+  <p class="subtitle" data-hero-anim="3">A customer scans their own home to find their WiFi dead zones. If they still need a person, the agent who picks up the call sees the same map, plus every scan that customer&rsquo;s run before.</p>
+
+  <figure class="page-hero__figure" data-hero-anim="4">
+    <img src="images/cg-hero-mt079ybd-cbts.png" alt="The scan mid walk: the AR view with the live heat map overlay, the WiFi heatmap screen with the floor plan and signal markers, and the router and point-of-issue scan results.">
+  </figure>
+</header>
+
+<section class="facts-strip band">
+  <div class="fact" data-reveal>
+    <span class="fact__label">Role</span>
+    <p class="fact__value">UI design for the native app, iOS and Android, and the agent facing views inside TechSee Live</p>
+  </div>
+  <div class="fact" data-reveal>
+    <span class="fact__label">Team</span>
+    <p class="fact__value">RnD owned the signal processing and the AI diagnostics. I owned the interface</p>
+  </div>
+  <div class="fact" data-reveal>
+    <span class="fact__label">Scope</span>
+    <p class="fact__value">The customer's self guided scan, the technician's app, the generated technician report, and the agent's session and history views</p>
+  </div>
+  <div class="fact" data-reveal>
+    <span class="fact__label">Outcome</span>
+    <p class="fact__value">Launched publicly as Connectivity Guru in Feb 2025. Two more releases followed, one for field technicians and one for contact center agents, before I left in March 2026</p>
+  </div>
+  <div class="fact" data-reveal>
+    <span class="fact__label">When</span>
+    <p class="fact__value">TechSee, roughly 2023 to 2026. Designed the native app first, then carried it through public launch and the two releases after</p>
+  </div>
+</section>
+
+<section class="section section--first" style="display: grid; gap: clamp(20px, 2.2vw, 28px);">
+  <p class="body-text" data-reveal style="max-width: 780px;">Connectivity Guru started as a native scanning app and became TechSee&rsquo;s first purpose built agentic AI product for home connectivity, launched publicly in February 2025 and built on Sophie AI underneath. It&rsquo;s actually two separate apps, one for technicians and one for customers. I worked on it in the early stages, before and around that launch, mostly the scan UI, both technician and customer apps, agent&rsquo;s history and comparison view. It&rsquo;s sold into telecom, home security and smart home providers. More than half of customers say they&rsquo;d switch providers over an unresolved connectivity problem, which is most of why this shipped as fast as it did.</p>
+  <a data-reveal href="https://www.prnewswire.com/news-releases/techsee-launches-connectivity-guru-model-3-1-bringing-network-coverage-visualization-to-the-contact-center-302596597.html" target="_blank" rel="noopener" class="source-link" style="justify-self: start;">Source: TechSee</a>
+</section>
+
+<section class="section">
+  <div class="rail">
+    <span class="eyebrow rail__label" data-reveal>01 &mdash; The scan</span>
+    <div class="rail__content" data-reveal>
+      <h2 class="h2">The flow starts at the router,<br>not at the problem</h2>
+      <p class="body-text">A regular scan reads signal strength at the source. If that&rsquo;s healthy, an AR scan maps the walk, weak to strong, and the heatmap shows possible causes for each weak spot, a refrigerator, a metal wall, whatever might be blocking the signal. The customer ends up with that heat map over the scanned area, plus the router&rsquo;s signal strength.</p>
+      <p class="body-text">A stepper tracked progress through the flow, so it never felt open-ended.</p>
+      <p class="body-text">If the router reading is already weak, the flow stops there. A bad reading at the router was already a likely cause. The customer gets a basic AI recommendation built from that scan, not a handoff to a person.</p>
+    </div>
+  </div>
+
+  <figure class="figure figure--scroll" data-reveal style="margin-top: clamp(28px, 3vw, 40px);">
+    <div class="diagram-wrap" style="min-width: 560px;">
+      <div class="diagram-flow">
+        <span class="eyebrow" style="padding-bottom: 16px; font-size: 10.5px;">Before the scan</span>
+
+        <div class="diagram-node diagram-node--wide">
+          <span class="diagram-node__title">Enter the code</span>
+          <span class="diagram-node__desc">Tells the system which provider the request belongs to</span>
+        </div>
+        <div class="diagram-connector"></div>
+
+        <div class="diagram-node diagram-node--wide">
+          <span class="diagram-node__title">&ldquo;What are you having trouble with?&rdquo;</span>
+          <span class="diagram-node__desc">Sets the topic of the issue</span>
+        </div>
+        <div class="diagram-connector"></div>
+
+        <div class="diagram-node diagram-node--wide">
+          <span class="diagram-node__title">What you&rsquo;ll be doing</span>
+          <span class="diagram-node__desc">The whole journey shown before it starts</span>
+        </div>
+        <div class="diagram-connector" style="height: 30px;"></div>
+
+        <div class="diagram-node diagram-node--wide">
+          <span class="diagram-node__kicker">Step 1</span>
+          <span class="diagram-node__title">Stand next to the router</span>
+          <span class="diagram-node__desc">Explained first, then the connection is analysed</span>
+        </div>
+        <div class="diagram-connector"></div>
+
+        <div class="diagram-node" style="max-width: 360px;">
+          <span class="diagram-node__kicker">Decision</span>
+          <span style="display: block; font-size: 15px; line-height: 1.45; color: var(--ink-body-strong);">Is the connection at the router healthy?</span>
+        </div>
+
+        <div class="diagram-connector diagram-connector--short"></div>
+        <div class="diagram-connector-h" style="width: min(calc(50% + 12px), 372px);"></div>
+
+        <div class="diagram-branches">
+          <div class="diagram-branch">
+            <div class="diagram-connector diagram-connector--short diagram-connector--accent"></div>
+            <span class="diagram-pill diagram-pill--accent">No</span>
+            <div class="diagram-connector diagram-connector--short diagram-connector--accent"></div>
+            <div class="diagram-node diagram-node--accent">
+              <span class="diagram-node__title">Escalate to an agent</span>
+              <span class="diagram-node__desc">The flow ends here. A person picks it up with the reading already taken</span>
+            </div>
+          </div>
+
+          <div class="diagram-branch">
+            <div class="diagram-connector diagram-connector--short"></div>
+            <span class="diagram-pill">Yes</span>
+            <div class="diagram-connector diagram-connector--short"></div>
+            <div class="diagram-node">
+              <span class="diagram-node__kicker">Step 2</span>
+              <span class="diagram-node__title">Scan the room</span>
+              <span class="diagram-node__desc">How to walk the room, then the scan itself</span>
+            </div>
+            <div class="diagram-connector"></div>
+            <div class="diagram-node diagram-node--muted">
+              <span class="diagram-node__kicker">Step 3</span>
+              <span class="diagram-node__title">Results</span>
+              <span class="diagram-node__desc">The heat map, the next best action, and the recommendations</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <figcaption class="caption">The customer journey end to end. The code identifies the provider, the question scopes the issue, and the reading at the router decides whether the customer carries on scanning or is handed to a person.</figcaption>
+  </figure>
+
+  <figure class="figure" data-reveal>
+    <img src="images/connectivity-guru-steps-mt07rwxx-38sn.png" alt="The scan flow end to end: three scans explained, baseline reading at the router, network analysis, the walk to the point of issue, the AR walk itself, the resulting WiFi heat map, and the scan complete summary with its recommendation.">
+  </figure>
+</section>
+
+<section class="section" style="display: grid; gap: clamp(28px, 3vw, 40px);">
+  <div class="rail">
+    <span class="eyebrow rail__label" data-reveal>02 &mdash; Agent view</span>
+    <div class="rail__content" data-reveal>
+      <h2 class="h2">What the agent sees</h2>
+      <p class="body-text">The same scan lands inside TechSee Live as a session card: signal strength, connected devices, and a history of that customer&rsquo;s past scans sitting right next to it. An agent on a repeat call can compare this scan against the last one and see what actually changed, not just what&rsquo;s wrong today. One click sends it to Sophie.</p>
+      <p class="quote">It&rsquo;s the same job TechSee&rsquo;s contact center release later described: a live heat map an agent can read, instead of a transcript.</p>
+    </div>
+  </div>
+
+  <figure class="figure figure--end" data-reveal style="margin-top: clamp(28px, 3vw, 40px);">
+    <img src="images/uploads/cg agent hostory.png" alt="The agent's activity records: sessions filtered by mode, with the selected Wi-Fi Analysis session opened in the details panel — insights, heat map, and speed, signal and device readings.">
+  </figure>
+</section>
+
+<section class="section">
+  <div class="tech-row">
+    <span class="eyebrow rail__label" data-reveal>03 &mdash; The technician&rsquo;s app</span>
+    <div class="rail__content rail__content--narrow" data-reveal>
+      <h2 class="h2">The technician&rsquo;s app</h2>
+      <p class="body-text">Connectivity Guru isn&rsquo;t one app wearing two hats, it&rsquo;s two separate apps. Technicians got theirs first. It&rsquo;s a more technical view than the customer ever sees, with detail a homeowner wouldn&rsquo;t know what to do with.</p>
+      <p class="body-text">Technicians can drop markers directly onto WiFi extenders and other problem spots they spot in the room, and move independently through each mesh unit&rsquo;s view within the same network, to check whether one of them isn&rsquo;t holding up its end.</p>
+      <p class="body-text">The heatmap was a real constraint here. It&rsquo;s a PNG, not a vector, so markers couldn&rsquo;t carry their own labels on the image itself, the names live in a separate legend instead. Given more time, I&rsquo;d have shown each marker with its name right on it, not pulled out into a legend a technician has to cross-reference.</p>
+    </div>
+
+    <figure class="tech-row__figure" data-reveal>
+      <img src="images/uploads/technician app.png" alt="The technician app home screen: job ID at the top, the connected network with room and floor, download and upload speeds, an offline scan button, the connected access point with channel, band, security, distance and signal readings, other access points below, and a tab bar for My Network, AR Scan, Channels and Networks.">
+    </figure>
+  </div>
+
+  <div class="figure-grid" style="margin-top: clamp(24px, 2.6vw, 36px);">
+    <figure class="figure" data-reveal>
+      <div class="about-slideshow" data-slideshow data-interval="1300" style="aspect-ratio: 1518 / 1164;">
+        <img class="is-active" src="images/uploads/cg layers 1.png" alt="The heatmap building up as markers are placed, first pass">
+        <img src="images/uploads/cg layers 2.png" alt="The heatmap building up as markers are placed, second pass">
+        <img src="images/uploads/cg layers 3.png" alt="The heatmap building up as markers are placed, third pass">
+        <img src="images/uploads/cg layers 4.png" alt="The heatmap building up as markers are placed, fourth pass">
+      </div>
+    </figure>
+    <figure class="figure" data-reveal>
+      <img src="images/uploads/add marker.png" alt="Adding a marker: naming it from the preset list or typing a custom name, confirmed against the live heatmap view underneath" style="aspect-ratio: 1518 / 1164; object-fit: cover;">
+    </figure>
+  </div>
+</section>
+
+<section class="section">
+  <div class="rail" style="align-items: flex-start;">
+    <span class="eyebrow rail__label" data-reveal>04 &mdash; The report</span>
+    <div class="split-row" style="flex: 1 1 480px;">
+      <div class="split-row__text" data-reveal>
+        <h2 class="h2">The technician&rsquo;s report</h2>
+        <p class="body-text">Every scan also produces a report, floor by floor: heat maps per floor, a channel congestion read across 2.4, 5 and 6 GHz, and every device the scan detected on the network. It&rsquo;s close to what TechSee later described as a connectivity &ldquo;birth certificate,&rdquo; proof of coverage a technician can leave behind, not just a fix they promise held.</p>
+      </div>
+      <figure class="split-row__figure" data-reveal>
+        <img src="images/uploads/CG report.png" alt="The generated WiFi report: customer and scan details, per-floor heat maps, channel congestion analysis across 2.4, 5 and 6 GHz, and the list of detected devices.">
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="section section--last">
+  <div class="rail">
+    <span class="eyebrow rail__label" data-reveal>05 &mdash; Outcome</span>
+    <div class="rail__content" data-reveal style="max-width: 860px; gap: 28px;">
+      <h2 class="h2">What happened</h2>
+      <p class="body-text" style="max-width: 700px;">Connectivity Guru launched publicly in February 2025, TechSee&rsquo;s first purpose built agentic AI product, built on Sophie AI. Two more releases followed: Model 2.1 in July, for field technicians, and Model 3.1 in October, for contact center agents. Both were live before I left in March 2026.</p>
+
+      <div class="metric-table">
+        <div class="metric-table__row">
+          <div class="metric-cell">
+            <span class="metric-cell__number metric-cell__number--small">Feb 2025</span>
+            <span class="metric-cell__desc"><strong>Public launch</strong> as Connectivity Guru.</span>
+          </div>
+          <div class="metric-cell">
+            <span class="metric-cell__number metric-cell__number--small">Model 2.1</span>
+            <span class="metric-cell__desc"><strong>July</strong> &mdash; the field technician release.</span>
+          </div>
+          <div class="metric-cell">
+            <span class="metric-cell__number metric-cell__number--small">Model 3.1</span>
+            <span class="metric-cell__desc"><strong>October</strong> &mdash; the contact center release.</span>
+          </div>
+        </div>
+      </div>
+
+      <a href="https://techsee.com/connectivity-guru/" target="_blank" rel="noopener" class="source-link" style="align-self: flex-start;">Source: TechSee</a>
+    </div>
+  </div>
+</section>
+
+<section class="more-cases band">
+  <span class="eyebrow">More case studies</span>
+  <div class="more-cases__grid">
+    <a class="case-card" href="sophie-ai.html">
+      <span class="case-card__number">01</span>
+      <span class="case-card__title">Sophie AI <span class="case-card__arrow" aria-hidden="true">&rarr;</span></span>
+      <p class="case-card__desc">An autonomous agent that sees.</p>
+    </a>
+    <a class="case-card" href="auto-classifier.html">
+      <span class="case-card__number">02</span>
+      <span class="case-card__title">Auto-Classifier <span class="case-card__arrow" aria-hidden="true">&rarr;</span></span>
+      <p class="case-card__desc">Training a computer vision model without a data scientist.</p>
+    </a>
+  </div>
+</section>

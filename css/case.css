@@ -1,0 +1,66 @@
+/* Numbered figure+text row (Sophie's "three surfaces" and similar) */
+.feature-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: clamp(28px, 3.2vw, 48px);
+  align-items: center;
+}
+.feature-row__figure { flex: 9 1 560px; min-width: 0; margin: 0; }
+.feature-row__figure-frame { position: relative; width: 100%; overflow: hidden; border-radius: var(--radius); background: var(--surface-image); }
+.feature-row__figure-frame img { display: block; width: 100%; height: auto; }
+.feature-row__inset {
+  position: absolute;
+  left: 14.2%;
+  top: 36.1%;
+  width: 12%;
+  height: 20.8%;
+  border-radius: 7%;
+  object-fit: cover;
+  pointer-events: none;
+}
+.feature-row__text { flex: 2 1 200px; min-width: 0; display: flex; flex-direction: column; gap: 14px; }
+.feature-row__meta { display: flex; align-items: center; gap: 12px; }
+.feature-row__number { font-family: var(--font-mono); font-size: var(--text-meta); letter-spacing: var(--tracking-label); color: var(--accent); }
+.feature-row__title { font-family: var(--font-display); font-weight: 600; font-size: 24px; line-height: 1.2; letter-spacing: -0.018em; color: var(--ink); }
+.feature-row__desc { font-size: 17px; line-height: 1.6; color: var(--ink-body); text-wrap: pretty; }
+.feature-rows { display: flex; flex-direction: column; gap: clamp(44px, 5vw, 72px); }
+
+/* Side-by-side figure grid (2up) */
+.figure-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: clamp(24px, 2.6vw, 36px);
+}
+.figure-grid img, .figure-grid .about-slideshow { width: 100%; }
+.figure-grid img { border-radius: var(--radius); }
+
+/* Placeholder for a missing asset */
+.figure-missing {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: var(--radius);
+  background: var(--surface-image);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  color: var(--ink-faint);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  text-align: center;
+  padding: 24px;
+}
+.figure-missing__icon { font-size: 8px; color: var(--ink-faint); }
+
+/* Row of a text column beside a report/report-like figure with unequal flex */
+.split-row { display: flex; gap: clamp(24px, 2.6vw, 40px); flex-wrap: wrap; align-items: flex-start; }
+.split-row__text { flex: 1 1 240px; display: flex; flex-direction: column; gap: 22px; max-width: 520px; }
+.split-row__figure { flex: 1.6 1 300px; margin: 0; }
+.split-row__figure img { width: 100%; height: auto; border-radius: var(--radius); background: var(--surface-image); }
+
+/* Technician app: text column + side figure */
+.tech-row { display: flex; flex-direction: row; gap: clamp(28px, 4vw, 72px); flex-wrap: wrap; }
+.tech-row__figure { flex: 0 1 300px; min-width: 200px; align-self: flex-start; margin: 0; }
+.tech-row__figure img { width: 100%; height: auto; }

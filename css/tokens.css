@@ -1,0 +1,92 @@
+:root {
+  /* Accent — themeable */
+  --accent: #d05aea;
+  --accent-bright: #ff73ff;
+
+  /* Ink */
+  --ink: #0d0d0d;
+  --ink-base: #0a0a0a;
+  --ink-body-strong: #1f1f1f;
+  --ink-body: #383838;
+  --ink-muted: #595959;
+  --ink-soft: #6b6b6b;
+  --ink-label: #737373;
+  --ink-meta: #8c8c8c;
+  --ink-faint: #a3a3a3;
+
+  /* Surfaces */
+  --surface: #ffffff;
+  --surface-image: #f2f2f2;
+  --surface-chip: #f4f2f5;
+  --surface-hover: #f5f2f6;
+  --surface-diagram: #f4f1f6;
+  --surface-pill: #f1edf4;
+
+  /* Borders */
+  --border: #e6e2e8;
+  --border-soft: #e3e0e6;
+  --border-node: #d9d3e0;
+  --border-line: #c9c3cf;
+  --border-quote: #d8d2db;
+
+  /* Washes */
+  --band: linear-gradient(112deg, #fbf7fc 0%, #f7f5f8 44%, rgba(255,115,255,0.10) 100%);
+  --panel-gradient: linear-gradient(168deg, #fdfbfe 0%, #faf8fb 62%, rgba(255,115,255,0.06) 100%);
+  --bloom-gradient: radial-gradient(48% 42% at 62% 46%, rgba(255,115,255,0.62), rgba(255,115,255,0.26) 42%, transparent 72%);
+  --glass: rgba(255,255,255,0.78);
+  --glass-strong: rgba(255,255,255,0.94);
+  --bloom-opacity: 0.45;
+
+  /* Type */
+  --font-display: Archivo, sans-serif;
+  --font-body: Figtree, 'Helvetica Neue', Helvetica, sans-serif;
+  --font-mono: 'Space Mono', monospace;
+
+  --text-h1: clamp(44px, 7.2vw, 108px);
+  --text-h1-home: clamp(44px, 7.7vw, 118px);
+  --text-h2: clamp(28px, 3vw, 40px);
+  --text-card-title: clamp(30px, 3.4vw, 46px);
+  --text-statement: clamp(22px, 2.4vw, 34px);
+  --text-subtitle: clamp(20px, 2.1vw, 30px);
+  --text-quote: clamp(20px, 2vw, 27px);
+  --text-body: clamp(18px, 1.6vw, 21px);
+  --text-metric: clamp(34px, 3.4vw, 48px);
+  --text-card-body: 16.5px;
+  --text-tile-title: 22px;
+  --text-tile-body: 16px;
+  --text-caption: 14px;
+  --text-label: 12px;
+  --text-meta: 11px;
+
+  --tracking-h1: -0.042em;
+  --tracking-h2: -0.028em;
+  --tracking-card-title: -0.03em;
+  --tracking-statement: -0.018em;
+  --tracking-label: 0.2em;
+  --tracking-meta: 0.14em;
+
+  /* Space */
+  --gutter: clamp(24px, 5.6vw, 80px);
+  --section-y: clamp(44px, 4.4vw, 64px);
+  --section-y-first: clamp(56px, 5.6vw, 84px);
+  --section-y-last: clamp(56px, 5.6vw, 80px);
+  --rail-col: clamp(150px, 14vw, 192px);
+  --rail-gap: clamp(28px, 4vw, 72px);
+  --measure: 700px;
+  --measure-narrow: 620px;
+  --stack-gap: 22px;
+  --stack-gap-about: 18px;
+  --figure-gap: clamp(24px, 2.6vw, 36px);
+  --content-max: 1440px;
+  --figure-indent: clamp(0px, calc(100vw - 720px), calc(var(--rail-col) + var(--rail-gap)));
+
+  /* Shape + motion */
+  --radius: 10px;
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --dur-hover: 200ms;
+  --dur-reveal: 700ms;
+  --dur-lift: 420ms;
+  --dur-zoom: 620ms;
+  --dur-entrance: 900ms;
+  --shadow-dropdown: 0 18px 46px rgba(13,13,13,0.13);
+}
