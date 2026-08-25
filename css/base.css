@@ -240,26 +240,43 @@ h1, h2, h3, p, blockquote, figure { margin: 0; }
 }
 .rail__content--narrow { max-width: var(--measure-narrow); }
 
-/* Full-bleed tinted band */
+/* Full-bleed tinted band, content-width contents.
+   The background bleeds to the viewport edge via a pseudo-element;
+   the band itself stays in normal flow so its padding/content lines
+   up with the rest of the page without any centering math. */
 .band {
-  background: var(--band);
-  box-sizing: border-box;
+  position: relative;
+  isolation: isolate;
+}
+.band::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
   width: 100vw;
-  margin-left: calc(50% - 50vw);
-  padding-left: calc(var(--gutter) + max(0px, (100vw - 1440px) / 2));
-  padding-right: calc(var(--gutter) + max(0px, (100vw - 1440px) / 2));
+  transform: translateX(-50%);
+  background: var(--band);
+  z-index: -1;
 }
 
 /* ---------- Facts strip ---------- */
 
 .facts-strip {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 210px), 1fr));
-  gap: clamp(28px, 3vw, 44px) clamp(24px, 3vw, 44px);
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: clamp(28px, 3vw, 44px);
+  column-gap: clamp(24px, 3vw, 44px);
   padding: clamp(32px, 3.4vw, 48px) var(--gutter);
 }
 
-.fact { display: flex; flex-direction: column; gap: 10px; }
+.fact {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 0 0 calc(33.333% - clamp(24px, 3vw, 44px) * 2 / 3);
+  min-width: min(210px, 100%);
+}
 .fact__label { font-family: var(--font-mono); font-size: var(--text-meta); letter-spacing: var(--tracking-label); text-transform: uppercase; color: var(--ink-label); }
 .fact__value { font-size: 16px; line-height: 1.5; color: var(--ink-body); text-wrap: pretty; }
 

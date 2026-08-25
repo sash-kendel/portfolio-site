@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """Assembles static pages from _partials/ + pages/*.content.html into the site root."""
+import glob
 import os
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
@@ -10,6 +11,12 @@ with open(os.path.join(PARTIALS, "header.html"), encoding="utf-8") as f:
     HEADER = f.read()
 with open(os.path.join(PARTIALS, "footer.html"), encoding="utf-8") as f:
     FOOTER = f.read()
+
+# Cache-busting version for css/main.css — the local dev server sends no
+# cache headers, so browsers cache the stylesheet aggressively. Bump this
+# on every rebuild so a plain refresh (not just a hard refresh) picks up
+# CSS changes.
+CSS_VERSION = int(max(os.path.getmtime(p) for p in glob.glob(os.path.join(ROOT, "css", "*.css"))))
 
 SHELL = """<!DOCTYPE html>
 <html lang="en">
@@ -26,7 +33,7 @@ SHELL = """<!DOCTYPE html>
 <link rel="apple-touch-icon" href="images/favicon/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css/main.css?v={css_version}">
 <noscript><style>[data-reveal], [data-hero-anim] {{ opacity: 1 !important; transform: none !important; }}</style></noscript>
 </head>
 <body>
@@ -42,7 +49,7 @@ SHELL = """<!DOCTYPE html>
 
 # (output filename, title, description, content source file)
 MANIFEST = [
-    ("index.html", "Sasha Kendel — Product Designer", "I design the human side of AI. Sasha Kendel, product designer building the interface between AI agents and the people who rely on them.", "index.content.html"),
+    ("index.html", "Sasha Kendel — Product Designer", "Clear interfaces for complex AI. Sasha Kendel, product designer building the interface between AI agents and the people who rely on them.", "index.content.html"),
     ("sophie-ai.html", "Sophie AI — Sasha Kendel", "An autonomous agent that sees. Three surfaces, three very different users, one AI underneath. Run by ADT across millions of American homes.", "sophie-ai.content.html"),
     ("auto-classifier.html", "Auto-Classifier — Sasha Kendel", "Turning the support sessions a company already runs into the training data its AI needs.", "auto-classifier.content.html"),
     ("connectivity-guru.html", "Connectivity Guru — Sasha Kendel", "A customer scans their own home to find their WiFi dead zones. If they still need a person, the agent who picks up sees the same map.", "connectivity-guru.content.html"),
@@ -54,7 +61,7 @@ MANIFEST = [
 for filename, title, description, source in MANIFEST:
     with open(os.path.join(PAGES, source), encoding="utf-8") as f:
         content = f.read()
-    html = SHELL.format(title=title, description=description, header=HEADER, content=content, footer=FOOTER)
+    html = SHELL.format(title=title, description=description, header=HEADER, content=content, footer=FOOTER, css_version=CSS_VERSION)
     out_path = os.path.join(ROOT, filename)
     with open(out_path, "w", encoding="utf-8") as f:
         f.write(html)

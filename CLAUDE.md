@@ -62,10 +62,6 @@ Vercel/GitHub OAuth "Connect" buttons inside Vercel's own UI **silently fail** w
 
 Original Figma handoff lives outside this repo, at `~/Documents/Claude folder/design_handoff_portfolio_site/` — `.dc.html` prototypes (inline-style reference), `README.md` / `DESIGN_SYSTEM.md`, `tokens.css`, and `uploads/`. The instruction from that handoff was explicit: don't port the inline-style pattern — everything was rebuilt into the class-based token system under `css/`.
 
-## Known content gap
-
-Sophie AI's escalation section (`pages/sophie-ai.content.html`) references an asset — "agent view at handoff" — that was **never actually included** in the design handoff bundle (verified by checking every file in `uploads/`, including unused ones). It currently shows a plain "Screenshot coming soon" placeholder (`.figure-missing` class in `case.css`). If the real image ever shows up, swap it in and delete the placeholder markup.
-
 ## Design review — fixed vs. skipped
 
 A design-critique pass found several issues; fixes already applied:
@@ -75,6 +71,10 @@ A design-critique pass found several issues; fixes already applied:
 - About page's "Off the clock" rail label wrapped to 2 lines while its siblings didn't — widened `--rail-col` slightly
 - Site depended entirely on JS for content visibility (`[data-reveal]` defaults to `opacity:0`) — added a `<noscript>` fallback in `build.py`'s shell template
 - Isometric icons (About) and the technician-app phone mockup (Connectivity Guru) are transparent PNGs that were getting an unwanted gray box behind them — added `.figure--transparent` modifier / removed background from `.tech-row__figure img`
+- `.band` (the tinted strips: partnered-with, facts-strip, about-strip, more-cases, references) went full-bleed to 100vw with a calc()'d padding trick to keep inner content aligned to 1440px — on ultrawide viewports the tint stretched past the content column. Simplified to `width:100%` inside `.page` (already 1440px max-width, centered), so the band's background now matches content width
+- Facts-strip (`.facts-strip`) used CSS grid `auto-fit`, which let 5 facts fill one row edge-to-edge — switched to flexbox with `flex-basis: 33.333%` so it's always 3 facts per row, 2 wrapping below
+- Sophie AI's "Customer" feature row had a CSS specificity bug: `.feature-row__figure-frame img` (class+element, 0-1-1) unintentionally beat `.feature-row__inset`'s own width/height (class only, 0-1-0), so the `capture-guide.gif` overlay rendered at 100% frame width instead of its intended 12%×20.8% box over phone 1's illustration — fixed by scoping the inset rule to `.feature-row__figure-frame img.feature-row__inset` (0-2-1)
+- Favicon replaced: was a plain black "SK" wordmark on white, now white "SK" on a dark rounded-square (`--ink-base`), matching a reference the user supplied
 
 **Explicitly left alone per user instruction** (don't "fix" these without being asked again):
 - Low-contrast text on `ink-meta`/`ink-faint` tokens (back-links, source-links) — fails WCAG AA for small text, but this is inherited from the original design system's own token values
@@ -82,4 +82,4 @@ A design-critique pass found several issues; fixes already applied:
 
 ## Favicon
 
-SK monogram, recreated (not pixel-copied) in **Archivo Black** — the same display typeface the site already uses — via a one-off PIL script, not stored in the repo. Full set lives in `images/favicon/`: `favicon.ico` (multi-res), 16/32/48/192/512px PNGs, `apple-touch-icon.png`. Linked from every page via `build.py`'s shared `<head>` block.
+SK monogram in **Archivo Black** — the same display typeface the site already uses — white on a dark rounded-square background (`--ink-base` #0a0a0a), rendered via a one-off PIL script, not stored in the repo. Recreated from a user-supplied reference image rather than pixel-copied. Full set lives in `images/favicon/`: `favicon.ico` (multi-res), 16/32/48/192/512px PNGs, `apple-touch-icon.png`. Linked from every page via `build.py`'s shared `<head>` block.

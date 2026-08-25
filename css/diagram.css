@@ -44,6 +44,7 @@
   color: var(--ink-body-strong);
 }
 .diagram-node--wide { max-width: 400px; }
+.diagram-node--fit { width: auto; }
 .diagram-node--wider { max-width: 760px; }
 .diagram-node--accent { border-color: var(--accent); }
 .diagram-node--muted { background: var(--surface-diagram); color: #4d4d4d; }
@@ -115,6 +116,7 @@
 .diagram-questions-row { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
 
 .diagram-caption-band {
+  display: block;
   padding-top: 12px;
   text-align: center;
   font-family: var(--font-mono);

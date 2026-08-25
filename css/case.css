@@ -8,7 +8,7 @@
 .feature-row__figure { flex: 9 1 560px; min-width: 0; margin: 0; }
 .feature-row__figure-frame { position: relative; width: 100%; overflow: hidden; border-radius: var(--radius); background: var(--surface-image); }
 .feature-row__figure-frame img { display: block; width: 100%; height: auto; }
-.feature-row__inset {
+.feature-row__figure-frame img.feature-row__inset {
   position: absolute;
   left: 14.2%;
   top: 36.1%;
