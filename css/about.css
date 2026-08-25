@@ -35,8 +35,8 @@
   background: var(--surface-image);
 }
 
-.tech-row__figure--stretch { align-self: stretch; }
-.tech-row__figure--stretch .about-slideshow { height: 100%; min-height: 300px; aspect-ratio: auto; }
+.tech-row__figure.tech-row__figure--center { align-self: center; }
+
 .about-slideshow img {
   position: absolute;
   inset: 0;

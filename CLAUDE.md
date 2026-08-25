@@ -37,9 +37,18 @@ Then open `localhost:4321`. **Caveat:** the browser aggressively caches CSS/JS f
 - **Domain:** `sashkendel.website`, bought through Vercel, DNS auto-managed
 - **Auto-deploy:** any push to `main` redeploys production automatically — no manual Vercel step needed after `git push`
 
-### Pushing to GitHub — no stored credentials
+### Pushing to GitHub — SSH deploy key (as of 2026-08-25)
 
-This machine has no git credential helper and no `gh` CLI. Every session needs a **fresh GitHub fine-grained personal access token** to push:
+This machine now has a dedicated SSH keypair for pushing, so a fresh PAT is no longer needed:
+
+- Key: `~/.ssh/id_ed25519_portfolio` (private, stays on this machine) / `~/.ssh/id_ed25519_portfolio.pub`
+- Registered on GitHub under sash-kendel's account as an **Authentication key** named `portfolio-site-deploy`
+- `~/.ssh/config` has a `Host github.com` block pointing at that key (`IdentitiesOnly yes`)
+- Remote is set to SSH: `git@github.com:sash-kendel/portfolio-site.git` (not HTTPS)
+- Verify auth any time with `ssh -T git@github.com` — a successful "Hi sash-kendel!" (exit 1, no shell access) means it's working
+- Push normally with `git push origin main` — no token, no `GIT_ASKPASS` dance needed
+
+If this stops working (key removed from GitHub, new machine, etc.), fall back to a fresh GitHub fine-grained personal access token:
 
 1. github.com → Settings → Developer settings → Personal access tokens → **Fine-grained tokens** → Generate new token
 2. Resource owner: `sash-kendel`. Repository access: **Only select repositories** → `portfolio-site`
@@ -52,7 +61,8 @@ This machine has no git credential helper and no `gh` CLI. Every session needs a
    GIT_ASKPASS=/tmp/askpass.sh git push origin main
    rm /tmp/gh_token.txt /tmp/askpass.sh
    ```
-6. Push with a large `git config http.postBuffer 524288000` if it fails with `HTTP 400` — the image-heavy repo (~65MB) can exceed the default buffer.
+
+Push with a large `git config http.postBuffer 524288000` if it fails with `HTTP 400` — the image-heavy repo (~65MB) can exceed the default buffer.
 
 Old fine-grained tokens (`portfolio-site-push`, `portfolio-site-push-2`) are sitting unused in account settings, each expiring ~Sep 2026, scoped only to this repo — harmless to leave, fine to revoke.
 

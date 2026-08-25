@@ -118,6 +118,7 @@
 .diagram-caption-band {
   display: block;
   padding-top: 12px;
+  padding-bottom: 14px;
   text-align: center;
   font-family: var(--font-mono);
   font-size: 10.5px;

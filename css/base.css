@@ -5,6 +5,8 @@
 html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  width: 100%;
 }
 
 body {
@@ -12,7 +14,8 @@ body {
   background: var(--surface);
   color: var(--ink-base);
   font-family: var(--font-body);
-  overflow-x: clip;
+  overflow-x: hidden;
+  width: 100%;
 }
 
 img { max-width: 100%; display: block; }
@@ -218,6 +221,10 @@ h1, h2, h3, p, blockquote, figure { margin: 0; }
 .section--first { padding-top: var(--section-y-first); }
 .section--last { padding-bottom: var(--section-y-last); }
 
+/* Extra breathing room before a page's closing pink band (references,
+   more-cases, about-strip), bigger than the usual inter-section gap. */
+.closing-band { margin-top: clamp(72px, 7.2vw, 108px); }
+
 .rail {
   display: flex;
   flex-wrap: wrap;
@@ -229,6 +236,7 @@ h1, h2, h3, p, blockquote, figure { margin: 0; }
   box-sizing: border-box;
   width: var(--rail-col);
   padding-top: 10px;
+  white-space: nowrap;
 }
 
 .rail__content {
@@ -285,7 +293,18 @@ h1, h2, h3, p, blockquote, figure { margin: 0; }
 .figure img { width: 100%; height: auto; border-radius: var(--radius); background: var(--surface-image); }
 .figure--indent { margin-left: var(--figure-indent); width: auto; max-width: var(--measure); }
 .figure--end { justify-self: end; width: calc(100% - var(--figure-indent)); }
-.figure--scroll { overflow-x: auto; }
+.figure--scroll {
+  overflow-x: auto;
+  border-radius: var(--radius);
+  /* Scroll-shadow hint: fades + edge shadows that only show while there's
+     more content off-screen in that direction, and travel with the scroll
+     position (background-attachment: local tracks content, scroll tracks viewport). */
+  background:
+    linear-gradient(to right, var(--surface) 0%, rgba(255,255,255,0) 24px) left / 40px 100% no-repeat local,
+    linear-gradient(to left, var(--surface) 0%, rgba(255,255,255,0) 24px) right / 40px 100% no-repeat local,
+    linear-gradient(to right, rgba(20,10,25,0.10), rgba(20,10,25,0) 100%) left / 16px 100% no-repeat scroll,
+    linear-gradient(to left, rgba(20,10,25,0.10), rgba(20,10,25,0) 100%) right / 16px 100% no-repeat scroll;
+}
 .figure--transparent img { background: none; }
 
 /* ---------- Chips ---------- */
@@ -349,6 +368,7 @@ h1, h2, h3, p, blockquote, figure { margin: 0; }
   display: flex;
   flex-direction: column;
   gap: clamp(28px, 3vw, 40px);
+  margin-top: clamp(72px, 7.2vw, 108px);
   padding: var(--section-y) var(--gutter);
 }
 .more-cases__grid {

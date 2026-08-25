@@ -188,6 +188,7 @@
   flex-direction: column;
   gap: 28px;
   align-items: flex-start;
+  margin-top: clamp(72px, 7.2vw, 108px);
   padding: clamp(56px, 5.6vw, 80px) var(--gutter) clamp(64px, 6.7vw, 96px);
 }
 .about-strip__statement { max-width: none; }
