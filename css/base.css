@@ -14,7 +14,6 @@ body {
   background: var(--surface);
   color: var(--ink-base);
   font-family: var(--font-body);
-  overflow-x: hidden;
   width: 100%;
 }
 
@@ -434,6 +433,7 @@ h1, h2, h3, p, blockquote, figure { margin: 0; }
 }
 .footer__line { margin: 0; font-size: 16px; line-height: 1.4; color: var(--ink-body); }
 .footer__line a { color: var(--ink); font-weight: 500; transition: color 160ms ease; }
+.footer__contact { white-space: nowrap; }
 .footer__line a:hover { color: var(--accent); }
 .footer__links { display: flex; gap: 28px; align-items: center; }
 .footer__links a { font-family: var(--font-display); font-weight: 500; font-size: 15px; line-height: 1.4; color: var(--ink-muted); transition: color 160ms ease; }

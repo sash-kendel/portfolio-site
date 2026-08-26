@@ -37,7 +37,8 @@
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  gap: clamp(108px, 6vw, 156px);
+  column-gap: clamp(108px, 6vw, 156px);
+  row-gap: clamp(20px, 2.4vw, 28px);
   padding: clamp(32px, 3.4vw, 48px) var(--gutter);
 }
 .partners__label { flex: 0 0 auto; }
@@ -64,6 +65,10 @@
 .partners__logos img[data-logo="verizon"] { height: 22px; }
 .partners__logos img[data-logo="google-home"] { height: 32px; }
 .partners__logos img[data-logo="adt"] { height: 44px; }
+
+@media (max-width: 640px) {
+  .partners__logos { justify-content: flex-start; }
+}
 
 /* ---------- Work cards ---------- */
 
@@ -98,6 +103,11 @@
   height: 100%;
   object-fit: cover;
   transition: transform var(--dur-zoom) var(--ease);
+}
+
+@media (max-width: 640px) {
+  .work-card, .work-card--left { align-items: center; }
+  .work-card__image, .work-card__image--74 { width: 100%; }
 }
 .work-card.is-hot .work-card__image img,
 .work-card:focus-visible .work-card__image img { transform: scale(1.035); }

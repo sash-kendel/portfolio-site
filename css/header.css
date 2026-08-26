@@ -144,3 +144,19 @@
 @media (hover: none) {
   .nav-menu:hover .nav-dropdown { opacity: 0; visibility: hidden; pointer-events: none; transform: translateY(-6px); }
 }
+
+@media (max-width: 640px) {
+  .nav-menu { position: static; }
+  .nav-dropdown {
+    left: 0;
+    right: 0;
+    width: 100%;
+    min-width: 0;
+    padding-top: 0;
+  }
+  .nav-dropdown--narrow { min-width: 0; }
+  .nav-dropdown__panel {
+    border-radius: 0;
+    padding: 14px var(--gutter) 24px;
+  }
+}

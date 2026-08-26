@@ -64,3 +64,12 @@
 .tech-row { display: flex; flex-direction: row; gap: clamp(28px, 4vw, 72px); flex-wrap: wrap; }
 .tech-row__figure { flex: 0 1 300px; min-width: 200px; align-self: flex-start; margin: 0; }
 .tech-row__figure img { width: 100%; height: auto; }
+
+@media (max-width: 1180px) {
+  .tech-row { flex-direction: column; }
+  .tech-row .tech-row__figure {
+    flex: none;
+    width: min(300px, 100%);
+    margin-left: var(--figure-indent);
+  }
+}

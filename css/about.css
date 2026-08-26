@@ -37,6 +37,16 @@
 
 .tech-row__figure.tech-row__figure--center { align-self: center; }
 
+@media (max-width: 1180px) {
+  .rail--photo { flex-direction: column; }
+  .rail--photo .tech-row__figure {
+    flex: none;
+    align-self: flex-start;
+    width: min(320px, 100%);
+    margin-left: var(--figure-indent);
+  }
+}
+
 .about-slideshow img {
   position: absolute;
   inset: 0;
