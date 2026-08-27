@@ -141,8 +141,16 @@
   color: var(--ink-faint);
 }
 
+/* Touch devices: iOS leaves a tapped element in :hover until you tap
+   elsewhere, so this cancels that stray hover state. It must NOT fire while
+   the menu is deliberately open — ".nav-menu:hover .nav-dropdown" and
+   ".nav-menu.is-open .nav-dropdown" are both (0,3,0), and this rule is later
+   in source order, so it used to win and swallow the panel the instant it
+   opened (the trigger still turned accent + the chevron still flipped, since
+   those have no competing hover rule — exactly the reported symptom).
+   :not(.is-open) raises this to (0,4,0) and scopes it to its real purpose. */
 @media (hover: none) {
-  .nav-menu:hover .nav-dropdown { opacity: 0; visibility: hidden; pointer-events: none; transform: translateY(-6px); }
+  .nav-menu:not(.is-open):hover .nav-dropdown { opacity: 0; visibility: hidden; pointer-events: none; transform: translateY(-6px); }
 }
 
 @media (max-width: 640px) {

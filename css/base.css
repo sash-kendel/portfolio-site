@@ -15,6 +15,12 @@ body {
   color: var(--ink-base);
   font-family: var(--font-body);
   width: 100%;
+  /* Safety net for decorative overflow. "clip" rather than "hidden" because
+     hidden would make body a scroll container and break the sticky header;
+     clip does not. html's overflow-x:hidden alone does not reliably constrain
+     the layout viewport on iOS Safari, which is what let the whole page be
+     panned sideways / pinched out to reveal dead space. */
+  overflow-x: clip;
 }
 
 img { max-width: 100%; display: block; }
@@ -100,6 +106,17 @@ a { color: inherit; text-decoration: none; }
   animation: bloomIn 1400ms 120ms var(--ease) both;
 }
 .bloom--home { top: -260px; }
+
+/* The -180px right offset is an intentional ambient bleed past the 1440px
+   content column on desktop, where there is margin to bleed into. On narrow
+   viewports there is none, so those 180px became real document overflow
+   (measured: page scrollWidth 555px vs 375px viewport — the bloom accounted
+   for the entire difference) on every page, since all seven carry a bloom.
+   Pulling it flush kills the overflow; the blob still extends far to the left,
+   which costs nothing because leftward overflow is not scrollable in LTR. */
+@media (max-width: 900px) {
+  .bloom { right: 0; }
+}
 
 .bloom__inner {
   width: 100%;
