@@ -77,16 +77,15 @@ The entire site sits behind a password screen, enforced server-side by `middlewa
 - The correct password's SHA-256 hex hash lives in the `SITE_PASSWORD_HASH` environment variable (Vercel Project Settings → Environment Variables) — the plaintext password is never stored anywhere in the repo or in Vercel.
 - On a correct password, the middleware sets an `HttpOnly`, `Secure`, `SameSite=Lax` cookie (`sk_auth`) whose value **is** that same hash, valid 30 days. A GET request passes through once `sk_auth` matches `SITE_PASSWORD_HASH`.
 - If `SITE_PASSWORD_HASH` isn't set, the middleware fails closed (plain-text 500) rather than silently serving the site unprotected.
-- The backdrop behind the gate card (`images/gate-backdrop.jpg`) is a real screenshot of the homepage, but pre-blurred at the pixel level (downscaled ~2x, Gaussian-blurred, re-upscaled, then baked into a static JPEG) before it was ever added to the repo — the live homepage HTML/text is never sent to an unauthenticated visitor. Only that already-illegible raster image is served pre-auth (it lives under `images/`, which bypasses the gate). Don't replace it with a plain unblurred screenshot or apply the blur via a CSS `filter` on an unblurred image — either would ship the readable original to anyone who inspects network requests.
+- The backdrop behind the gate card (`images/gate-backdrop.jpg`) is a real screenshot of the homepage, pre-blurred at the pixel level (`ImageFilter.GaussianBlur(radius=10)`, baked into a static JPEG) before it was ever added to the repo — the live homepage HTML/text is never sent to an unauthenticated visitor; only that already-blurred raster image is served pre-auth (it lives under `images/`, which bypasses the gate). Note this backdrop is only ever the **homepage hero** (public marketing copy — "Clear interfaces for complex AI.", partner logos), never a case-study page, so a `10px`-equivalent blur that leaves the headline shape *readable-ish* is a deliberate aesthetic choice, not a leak of NDA content. If a backdrop is ever generated from a page with actually-sensitive text, blur it much more heavily (see the git history of this file for a stronger radius-11-on-2x-downscale recipe that was used and rejected as too readable) and verify it's genuinely illegible before committing.
 - To regenerate the backdrop after a homepage redesign: screenshot the real (authenticated) homepage, then blur+re-save it — e.g. with Pillow:
   ```python
   from PIL import Image, ImageFilter, ImageEnhance
   img = Image.open("homepage-raw.png").convert("RGB")
-  small = img.resize((img.width // 2, img.height // 2), Image.LANCZOS)
-  blurred = small.filter(ImageFilter.GaussianBlur(radius=11)).resize(img.size, Image.LANCZOS)
+  blurred = img.filter(ImageFilter.GaussianBlur(radius=10))
   ImageEnhance.Brightness(blurred).enhance(0.94).save("images/gate-backdrop.jpg", quality=80, optimize=True)
   ```
-  Check the result is genuinely illegible (not just softened) before committing it — radius 11 on a 2x downscale was the chosen balance between "still reads as content" and "no recoverable text."
+  Radius 10 straight (no pre-downscale) matches the approved "10px" look for the homepage hero. For any future backdrop sourced from a page with real sensitive content, blur much harder and verify the result is genuinely illegible, not just softened, before committing it.
 
 **To change the password:** compute the new SHA-256 hex hash and update `SITE_PASSWORD_HASH` in Vercel (no code change needed):
 ```bash

@@ -202,13 +202,17 @@ export default async function middleware(request) {
     );
   }
 
+  const url = new URL(request.url);
+  if (url.pathname === '/' && request.method === 'GET') {
+    return Response.redirect(new URL('/home.html', url), 307);
+  }
+
   if (request.method === 'POST') {
     const form = await request.formData();
     const password = (form.get('password') || '').toString();
     const hash = await sha256Hex(password);
 
     if (hash === expectedHash) {
-      const url = new URL(request.url);
       const res = new Response(null, { status: 303, headers: { Location: url.pathname } });
       res.headers.append(
         'Set-Cookie',

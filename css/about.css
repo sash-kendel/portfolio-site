@@ -58,6 +58,8 @@
 }
 .about-slideshow img.is-active { opacity: 1; }
 
+.about-slideshow--instant img { transition: none; }
+
 .about-quotes { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: clamp(28px, 3.4vw, 48px); }
 .about-quote { padding-left: 18px; border-left: 2px solid var(--border-quote); display: flex; flex-direction: column; justify-content: center; gap: 12px; }
 .about-quote__text { font-size: var(--text-body); font-style: italic; font-weight: 400; line-height: 1.4; color: var(--ink-body-strong); text-wrap: pretty; }

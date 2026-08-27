@@ -49,7 +49,7 @@ SHELL = """<!DOCTYPE html>
 
 # (output filename, title, description, content source file)
 MANIFEST = [
-    ("index.html", "Sasha Kendel — Product Designer", "Clear interfaces for complex AI. Sasha Kendel, product designer building the interface between AI agents and the people who rely on them.", "index.content.html"),
+    ("home.html", "Sasha Kendel — Product Designer", "Clear interfaces for complex AI. Sasha Kendel, product designer building the interface between AI agents and the people who rely on them.", "home.content.html"),
     ("sophie-ai.html", "Sophie AI — Sasha Kendel", "An autonomous agent that sees. Three surfaces, three very different users, one AI underneath. Run by ADT across millions of American homes.", "sophie-ai.content.html"),
     ("auto-classifier.html", "Auto-Classifier — Sasha Kendel", "Turning the support sessions a company already runs into the training data its AI needs.", "auto-classifier.content.html"),
     ("connectivity-guru.html", "Connectivity Guru — Sasha Kendel", "A customer scans their own home to find their WiFi dead zones. If they still need a person, the agent who picks up sees the same map.", "connectivity-guru.content.html"),
