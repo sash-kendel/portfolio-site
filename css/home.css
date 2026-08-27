@@ -40,6 +40,20 @@
   letter-spacing: -0.03em;
 }
 
+/* Custom "rf" ligature in "interfaces". Archivo ships no ligature table at
+   all — "rf" and even "fi" measure identically with font-variant-ligatures
+   disabled — so there is nothing to switch on and it has to be built. This
+   tucks the f in until the r's arm and the f's crossbar read as a single
+   continuous stroke (measured: the pair's tightest optical gap sits 0.02em
+   apart naturally, at the crossbar height).
+
+   Set on the r rather than on an "rf" wrapper, because letter-spacing adds
+   space after every character it applies to — on a wrapper it would also
+   push the following "a" away. In em so it holds across the headline's whole
+   clamp() range. The span sits inside the word, so the text is still exactly
+   "interfaces" to selection, search, and screen readers. */
+.hero__title .lig-rf { letter-spacing: -0.12em; }
+
 .hero__dek {
   flex: 0 0 340px;
   max-width: 340px;
