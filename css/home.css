@@ -6,7 +6,7 @@
   flex-direction: column;
   justify-content: center;
   gap: 34px;
-  min-height: clamp(448px, 61vh, 688px);
+  min-height: clamp(548px, 61vh, 688px);
   padding: clamp(58px, 6.4vw, 102px) var(--gutter) clamp(70px, 6.9vw, 106px);
 }
 .hero__title, .hero__lede { position: relative; }
