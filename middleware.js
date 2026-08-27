@@ -55,16 +55,18 @@ function gatePage({ showError = false } = {}) {
     overflow: hidden;
     position: relative;
   }
-  .gate-bloom {
-    position: absolute;
-    top: -280px;
-    right: -220px;
-    width: 1000px;
-    height: 760px;
-    pointer-events: none;
-    opacity: var(--bloom-opacity);
-    background: var(--bloom-gradient);
-    filter: blur(6px);
+  .gate-backdrop {
+    position: fixed;
+    inset: 0;
+    background-image: url(/images/gate-backdrop.jpg);
+    background-size: cover;
+    background-position: center top;
+    transform: scale(1.03);
+  }
+  .gate-scrim {
+    position: fixed;
+    inset: 0;
+    background: rgba(10, 10, 10, 0.38);
   }
 
   .lock-card {
@@ -168,7 +170,8 @@ function gatePage({ showError = false } = {}) {
 </style>
 </head>
 <body>
-<div class="gate-bloom" aria-hidden="true"></div>
+<div class="gate-backdrop" aria-hidden="true"></div>
+<div class="gate-scrim" aria-hidden="true"></div>
 <form class="lock-card${showError ? ' is-shaking' : ''}" method="POST" novalidate>
   <div class="lock-mark" aria-hidden="true">SK</div>
   <h1 class="lock-title">Enter a password to see more</h1>
