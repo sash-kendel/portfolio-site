@@ -178,7 +178,7 @@ function gatePage({ showError = false } = {}) {
   <p class="lock-subtitle">
     This page is restricted under an NDA. <br>
     Contact me at <a href="mailto:alexandra.yelagina@gmail.com">alexandra.yelagina@gmail.com</a><br>
-    or +973 543 029 635 to request access.
+    or +972 54 302 96 35 to request access.
   </p>
 
   <div class="lock-field">

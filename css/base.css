@@ -401,22 +401,6 @@ h1, h2, h3, p, blockquote, figure { margin: 0; }
 .case-card:hover .case-card__arrow { transform: translateX(10px); }
 .case-card__desc { font-size: var(--text-card-body); line-height: 1.5; color: var(--ink-soft); text-wrap: pretty; }
 
-/* ---------- Back link ---------- */
-
-.back-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  font-family: var(--font-mono);
-  font-size: var(--text-meta);
-  letter-spacing: var(--tracking-meta);
-  text-transform: uppercase;
-  color: var(--ink-meta);
-  transition: color 160ms ease;
-}
-.back-link:hover { color: var(--accent); }
-.back-link__arrow { display: inline-flex; align-items: center; transform: translateY(-1.5px); }
-
 /* ---------- Divider ---------- */
 
 .divider { height: 1px; background: var(--border-soft); }

@@ -122,7 +122,7 @@
 
 .nav-dropdown__item {
   display: flex;
-  align-items: baseline;
+  align-items: center;
   gap: 12px;
   padding: 11px 14px;
   border-radius: var(--radius);
