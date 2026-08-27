@@ -13,7 +13,7 @@
 <link rel="apple-touch-icon" href="images/favicon/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="css/main.css?v=1787836380">
+<link rel="stylesheet" href="css/main.css?v=1787841122">
 <noscript><style>[data-reveal], [data-hero-anim] { opacity: 1 !important; transform: none !important; }</style></noscript>
 </head>
 <body>
@@ -59,9 +59,28 @@
 <header id="top" class="hero">
   <div class="bloom bloom--home" aria-hidden="true"><div class="bloom__inner"></div></div>
 
-  <h1 class="h1 h1--home hero__title" data-hero-anim="1"><span class="accent-word">Clear</span> interfaces for complex AI.</h1>
+  <div class="hero__kicker" data-hero-anim="1">
+    <span class="hero__kicker-label">sasha kendel product designer</span>
+    <span class="hero__kicker-rule"></span>
+  </div>
 
-  <p class="hero__lede" data-hero-anim="2">Sasha Kendel, product designer. I build the interface between AI agents and the people who rely on them.</p>
+  <div class="hero__row">
+    <h1 class="h1 h1--home hero__title" data-hero-anim="2"><span class="accent-word">Clear</span> interfaces for complex AI</h1>
+
+    <div class="hero__dek" data-hero-anim="3">
+      <p class="hero__lede">I build the interface between AI agents and the people who rely on them.</p>
+      <div class="hero__meta">
+        <a class="hero__meta-row" href="mailto:alexandra.yelagina@gmail.com">
+          <span class="hero__meta-label">EMAIL</span>
+          <span class="hero__meta-value">alexandra.yelagina@gmail.com &rarr;</span>
+        </a>
+        <a class="hero__meta-row" href="https://drive.google.com/file/d/1e4VutxTV9ouAc34q7OCB7wiDfxy8nQbK/view?usp=sharing" target="_blank" rel="noopener noreferrer">
+          <span class="hero__meta-label">CV</span>
+          <span class="hero__meta-value">Download PDF &rarr;</span>
+        </a>
+      </div>
+    </div>
+  </div>
 </header>
 
 <section class="partners band">
@@ -75,42 +94,34 @@
   </div>
 </section>
 
-<section id="work" class="work-section" style="scroll-margin-top: 108px;">
-  <span class="eyebrow" data-reveal>Selected work</span>
+<section id="work" class="work-rows" style="scroll-margin-top: 108px;">
+  <h2 class="visually-hidden">Selected work</h2>
 
-  <a class="work-card work-card--pad-bottom" data-reveal href="sophie-ai.html">
-    <div class="work-card__image" style="aspect-ratio: 3 / 2;">
-      <img src="images/uploads/sophie hero.png" alt="Sophie AI assistant across three mobile screens: chat, live video guidance, and camera capture">
-    </div>
-    <div class="work-card__panel">
-      <div class="work-card__meta">
-        <span class="work-card__number">01</span>
-        <span class="work-card__hint">View case study <svg aria-hidden="true" width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M3 8h9.5M9 4.5 12.5 8 9 11.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
-      </div>
-      <h2 class="work-card__title">Sophie AI</h2>
-      <p class="work-card__oneliner">An autonomous agent that sees.</p>
-      <p class="work-card__desc">Three surfaces, three very different users, one AI underneath. Run by ADT across millions of American homes.</p>
-      <div class="work-card__tags">
+  <a class="work-row" href="sophie-ai.html" data-reveal>
+    <div class="work-row__copy">
+      <h3 class="work-row__title">Sophie AI</h3>
+      <p class="work-row__oneliner">An autonomous agent that sees.</p>
+      <p class="work-row__desc">Three surfaces, three very different users, one AI underneath. Run by ADT across millions of American homes.</p>
+      <div class="work-row__tags">
         <span class="chip">Autonomous agents</span>
         <span class="chip">Computer vision</span>
         <span class="chip">Enterprise</span>
       </div>
     </div>
+    <div class="work-row__media">
+      <img src="images/uploads/sophie hero.png" alt="Sophie AI assistant across three mobile screens: chat, live video guidance, and camera capture" loading="lazy">
+    </div>
   </a>
 
-  <a id="auto-classifier" class="work-card work-card--left" data-reveal href="auto-classifier.html" style="scroll-margin-top: 108px;">
-    <div class="work-card__image work-card__image--74" style="aspect-ratio: 1095 / 731;">
-      <img src="images/uploads/autoclassifier.png" alt="Auto-Classifier training results and deployment dashboard on a laptop">
+  <a id="auto-classifier" class="work-row" href="auto-classifier.html" data-reveal style="scroll-margin-top: 108px;">
+    <div class="work-row__media">
+      <img src="images/uploads/autoclassifier.png" alt="Auto-Classifier training results and deployment dashboard on a laptop" loading="lazy">
     </div>
-    <div class="work-card__panel">
-      <div class="work-card__meta">
-        <span class="work-card__number">02</span>
-        <span class="work-card__hint">View case study <svg aria-hidden="true" width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M3 8h9.5M9 4.5 12.5 8 9 11.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
-      </div>
-      <h2 class="work-card__title">Auto-Classifier</h2>
-      <p class="work-card__oneliner">Training a computer vision model without a data scientist.</p>
-      <p class="work-card__desc">A no-code tool for enterprise ops teams. It never reached production, and the reason is the most useful part of the story.</p>
-      <div class="work-card__tags">
+    <div class="work-row__copy">
+      <h3 class="work-row__title">Auto-Classifier</h3>
+      <p class="work-row__oneliner">Training a computer vision model without a data scientist.</p>
+      <p class="work-row__desc">A no-code tool for enterprise ops teams. It never reached production, and the reason is the most useful part of the story.</p>
+      <div class="work-row__tags">
         <span class="chip">Machine learning</span>
         <span class="chip">No-code tooling</span>
         <span class="chip">Human in the loop</span>
@@ -118,23 +129,19 @@
     </div>
   </a>
 
-  <a class="work-card work-card--pad-top" data-reveal href="connectivity-guru.html">
-    <div class="work-card__image" style="aspect-ratio: 2584 / 1434;">
-      <img src="images/cg-hero-mt079ybd-cbts.png" alt="Connectivity Guru on three phone screens: the AR walk with its live heat map, the finished WiFi heat map over the floor plan, and the scan results">
-    </div>
-    <div class="work-card__panel">
-      <div class="work-card__meta">
-        <span class="work-card__number">03</span>
-        <span class="work-card__hint">View case study <svg aria-hidden="true" width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M3 8h9.5M9 4.5 12.5 8 9 11.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
-      </div>
-      <h2 class="work-card__title">Connectivity Guru</h2>
-      <p class="work-card__oneliner">Home WiFi, made visible on a phone screen.</p>
-      <p class="work-card__desc">A customer scans their own home to find the dead zones. If they still need a person, the agent who picks up sees the same map.</p>
-      <div class="work-card__tags">
+  <a class="work-row" href="connectivity-guru.html" data-reveal>
+    <div class="work-row__copy">
+      <h3 class="work-row__title">Connectivity Guru</h3>
+      <p class="work-row__oneliner">Home WiFi, made visible on a phone screen.</p>
+      <p class="work-row__desc">A customer scans their own home to find the dead zones. If they still need a person, the agent who picks up sees the same map.</p>
+      <div class="work-row__tags">
         <span class="chip">iOS + Android</span>
         <span class="chip">AR scanning</span>
         <span class="chip">Agentic AI</span>
       </div>
+    </div>
+    <div class="work-row__media">
+      <img src="images/cg-hero-mt079ybd-cbts.png" alt="Connectivity Guru on three phone screens: the AR walk with its live heat map, the finished WiFi heat map over the floor plan, and the scan results" loading="lazy">
     </div>
   </a>
 </section>
