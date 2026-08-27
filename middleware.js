@@ -176,8 +176,8 @@ function gatePage({ showError = false } = {}) {
   <div class="lock-mark" aria-hidden="true">SK</div>
   <h1 class="lock-title">Enter a password to see more</h1>
   <p class="lock-subtitle">
-    This page is restricted under an NDA. Contact me at
-    <a href="mailto:alexandra.yelagina@gmail.com">alexandra.yelagina@gmail.com</a>
+    This page is restricted under an NDA. <br>
+    Contact me at <a href="mailto:alexandra.yelagina@gmail.com">alexandra.yelagina@gmail.com</a><br>
     or +973 543 029 635 to request access.
   </p>
 
