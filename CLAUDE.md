@@ -68,6 +68,24 @@ Old fine-grained tokens (`portfolio-site-push`, `portfolio-site-push-2`) are sit
 
 Vercel/GitHub OAuth "Connect" buttons inside Vercel's own UI **silently fail** when clicked via browser automation (popup gets blocked, no error surfaces). The reliable path is to install the Vercel GitHub App directly from GitHub's side: `github.com/apps/vercel/installations/new` → scope to the one repo → Install. That's a normal full-page GitHub flow, not a popup.
 
+## Password gate
+
+The entire site sits behind a password screen, enforced server-side by `middleware.js` (Vercel Edge Middleware, framework-agnostic — see `package.json`'s `@vercel/functions` dependency). This is a deliberate change from an earlier client-side-only mockup (`lock-preview.html`, since removed): a client-side check ships the password in plain JS, which doesn't actually protect anything.
+
+**How it works:**
+- `middleware.js` matches every route except `css/`, `js/`, `images/`, and `favicon.ico` (`config.matcher`), so the gate's own page can load the site's real stylesheet/fonts/logos while everything else stays blocked pre-auth.
+- The correct password's SHA-256 hex hash lives in the `SITE_PASSWORD_HASH` environment variable (Vercel Project Settings → Environment Variables) — the plaintext password is never stored anywhere in the repo or in Vercel.
+- On a correct password, the middleware sets an `HttpOnly`, `Secure`, `SameSite=Lax` cookie (`sk_auth`) whose value **is** that same hash, valid 30 days. A GET request passes through once `sk_auth` matches `SITE_PASSWORD_HASH`.
+- If `SITE_PASSWORD_HASH` isn't set, the middleware fails closed (plain-text 500) rather than silently serving the site unprotected.
+- Because the real page HTML is never sent to an unauthenticated visitor, the gate can't show a blurred preview of the actual homepage (that only worked in the old client-side mockup, which already had the real DOM loaded). Instead it shows the site's decorative pink/purple `--bloom-gradient` blob as a branded backdrop.
+
+**To change the password:** compute the new SHA-256 hex hash and update `SITE_PASSWORD_HASH` in Vercel (no code change needed):
+```bash
+node -e "console.log(require('crypto').createHash('sha256').update('NEW_PASSWORD_HERE').digest('hex'))"
+```
+
+**Local testing caveat:** `python3 -m http.server` (the usual local preview) does **not** run Edge Middleware — it only serves static files, so the gate won't appear locally. Middleware only runs once deployed to Vercel (production or a preview deployment).
+
 ## Design source
 
 Original Figma handoff lives outside this repo, at `~/Documents/Claude folder/design_handoff_portfolio_site/` — `.dc.html` prototypes (inline-style reference), `README.md` / `DESIGN_SYSTEM.md`, `tokens.css`, and `uploads/`. The instruction from that handoff was explicit: don't port the inline-style pattern — everything was rebuilt into the class-based token system under `css/`.
